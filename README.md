@@ -1,4 +1,4 @@
-# Where to drink
+# Link click count
 The script shortens the link using the api of the [Bitly](https://bitly.com/) service and also shows the statistics 
 of clicks on the user-specified short link.
 The user enters a long link for example:
