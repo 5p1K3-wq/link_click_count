@@ -12,7 +12,7 @@ def get_header_request(token):
 
 
 def count_clicks(token, bitlink):
-    api_url = f"https://api-ssl.bitly.com/v4/bitlinks/{bitlink}/clicks/summary".format(bitlink=bitlink)
+    api_url = f"https://api-ssl.bitly.com/v4/bitlinks/{bitlink}/clicks/summary"
     headers = get_header_request(token)
     params = {
         'unit': 'day',
@@ -51,13 +51,13 @@ def main():
             count_link = count_clicks(token, user_input)
             print('Количество кликов: ', count_link)
         except requests.exceptions.HTTPError as error:
-            exit("Can't get data from server:\n{0}".format(error))
+            exit(f"Can't get data from server:\n{error}")
     else:
         try:
             bitlink = shorten_link(token, user_input)
             print('Короткая ссылка: ', bitlink)
         except requests.exceptions.HTTPError as error:
-            exit("Can't get data from server:\n{0}".format(error))
+            exit(f"Can't get data from server:\n{error}")
 
 
 if __name__ == "__main__":
