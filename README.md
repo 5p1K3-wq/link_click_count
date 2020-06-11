@@ -3,19 +3,19 @@ The script shortens the link using the api of the [Bitly](https://bitly.com/) se
 of clicks on the user-specified short link.
 The user enters a long link for example:
 
-![](https://imgur.com/5ijcB4x.png)
+![](https://imgur.com/fKtbb6O.png)
 
 The script will return a short link:
 
-![](https://imgur.com/pwYa31C.png)
+![](https://imgur.com/6Uiwe7a.png)
 
 If the user provides a short link:
 
-![](https://imgur.com/61Ci8SH.png)
+![](https://imgur.com/DMundKV.png)
 
 In this case, the script will return the number of clicks on this link.
 
-![](https://imgur.com/ZBxc8eJ.png)
+![](https://imgur.com/iEKAQ4w.png)
 
 ## Getting started
 ### Manual instruction

@@ -1,6 +1,15 @@
 import os
 import requests
+import argparse
 from dotenv import load_dotenv, find_dotenv
+
+
+def create_parser():
+    parser = argparse.ArgumentParser(
+        description='The script creates short links and shows click statistics on a short link.'
+    )
+    parser.add_argument('link', help='Enter link')
+    return parser
 
 
 def get_header_request(token):
@@ -45,16 +54,18 @@ def get_profile(token):
 def main():
     load_dotenv(find_dotenv())
     token = os.getenv('ACCESS_TOKEN')
-    user_input = input('Введите ссылку: ')
-    if user_input.startswith("bit.ly"):
+    parser = create_parser()
+    args = parser.parse_args()
+    user_link = args.link
+    if user_link.startswith("bit.ly"):
         try:
-            count_link = count_clicks(token, user_input)
+            count_link = count_clicks(token, user_link)
             print('Количество кликов: ', count_link)
         except requests.exceptions.HTTPError as error:
             exit(f"Can't get data from server:\n{error}")
     else:
         try:
-            bitlink = shorten_link(token, user_input)
+            bitlink = shorten_link(token, user_link)
             print('Короткая ссылка: ', bitlink)
         except requests.exceptions.HTTPError as error:
             exit(f"Can't get data from server:\n{error}")
